@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title>Liquidación de Sueldo</title>
+
+  <style>
+    #formulario-liquidacion {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  #formulario-liquidacion h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  #formulario-liquidacion .form-group {
+    margin-bottom: 20px;
+  }
+  
+  #formulario-liquidacion label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #formulario-liquidacion input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  #formulario-liquidacion .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #formulario-liquidacion .btn-primary {
+    background-color: #337ab7;
+    color: #fff;
+  }
+  
+  #formulario-liquidacion .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  #formulario-liquidacion .btn:disabled {
+    background-color: #eee;
+    color: #999;
+    cursor: not-allowed;
+  }
+  
+  /* Estilos para el área de resultado */
+  #resultado {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  #resultado h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #resultado #sueldo-final {
+    font-size: 24px;
+    font-weight: bold;
+    color: #337ab7;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  #formulario-liquidacion {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #formulario-liquidacion .form-group {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  #formulario-liquidacion .btn {
+    width: 100%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #formulario-liquidacion .form-group {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+  #formulario-liquidacion .btn {
+    width: 50%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #formulario-liquidacion .form-group {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  #formulario-liquidacion .btn {
+    width: 25%;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <form id="formulario-liquidacion" class="mb-3">
+    <h2>Cálculo de sueldo quincenal</h2>
+    <div class="form-group">
+      <label for="horas-extra-diurnas-ordinarias">Horas extras diurnas ordinarias trabajadas</label>
+      <input type="number" class="form-control" id="horas-extra-diurnas-ordinarias" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="horas-extra-nocturnas-ordinarias">Horas extras nocturnas ordinarias trabajadas</label>
+      <input type="number" class="form-control" id="horas-extra-nocturnas-ordinarias" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="horas-recargo-nocturno-ordinario">Horas de recargo nocturno ordinario trabajadas</label>
+      <input type="number" class="form-control" id="horas-recargo-nocturno-ordinario" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="horas-extra-diurnas-festivas">Horas extras diurnas festivas trabajadas</label>
+      <input type="number" class="form-control" id="horas-extra-diurnas-festivas" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="horas-extra-nocturnas-festivas">Horas extras nocturnas festivas trabajadas</label>
+      <input type="number" class="form-control" id="horas-extra-nocturnas-festivas" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="horas-recargo-nocturno-festivo">Horas de recargo nocturno festivo trabajadas</label>
+      <input type="number" class="form-control" id="horas-recargo-nocturno-festivo" min="0" value="0">
+    </div>
+    <div class="form-group">
+      <label for="dias-festivos-trabajados">Días festivos trabajados</label>
+      <input type="number" class="form-control" id="dias-festivos-trabajados" min="0" value="0">
+    </div>
+    <button type="button" class="btn btn-primary" id="btn-calcular">Calcular</button>
+    <button type="button" class="btn btn-secondary" id="btn-limpiar">Limpiar</button>
+    <div class="resultado" id="resultado"></div>
+  </form>
+  <script>
+    // Deshabilitar el botón limpiar al cargar la página
+    document.getElementById("btn-limpiar").disabled = true;
+    document.getElementById("btn-calcular").disabled = true;
+
+    // Función para calcular el sueldo final
+    function calcularSueldo() {
+      // Obtener los valores de los campos del formulario
+      const sueldoBase = 1160000;
+      const subsidioTransporte = 70000;
+      const deduccionSalud = 47218;
+      const deduccionPension = 47218;
+      const horasExtraDiurnasOrdinarias = document.getElementById("horas-extra-diurnas-ordinarias").value;
+      const horasExtraNocturnasOrdinarias = document.getElementById("horas-extra-nocturnas-ordinarias").value;
+      const horasRecargoNocturnoOrdinario = document.getElementById("horas-recargo-nocturno-ordinario").value;
+      const horasExtraDiurnasFestivas = document.getElementById("horas-extra-diurnas-festivas").value;
+      const horasExtraNocturnasFestivas = document.getElementById("horas-extra-nocturnas-festivas").value;
+      const horasRecargoNocturnoFestivo = document.getElementById("horas-recargo-nocturno-festivo").value;
+      const diasFestivosTrabajados = document.getElementById("dias-festivos-trabajados").value;
+      const tarifas = [6041, 8457, 1691, 9665, 12081, 10149];
+
+      // Calcular el total devengado
+      let totalDevengado = sueldoBase / 2;
+      totalDevengado += tarifas[0] * horasExtraDiurnasOrdinarias;
+      totalDevengado += tarifas[1] * horasExtraNocturnasOrdinarias;
+      totalDevengado += tarifas[2] * horasRecargoNocturnoOrdinario;
+      totalDevengado += tarifas[3] * horasExtraDiurnasFestivas;
+      totalDevengado += tarifas[4] * horasExtraNocturnasFestivas;
+      totalDevengado += tarifas[5] * horasRecargoNocturnoFestivo;
+      totalDevengado += 67665 * diasFestivosTrabajados;
+
+      // Calcular el sueldo final
+      const sueldo = totalDevengado - deduccionSalud - deduccionPension + subsidioTransporte;
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = `El sueldo final a recibir es: $${sueldo.toLocaleString()}`;
+    }
+
+    // Deshabilitar el botón calcular si hay algún campo vacío
+    function validarFormulario() {
+      const campos = document.querySelectorAll("#formulario-liquidacion .form-control");
+      let formularioValido = true;
+      for (let i = 0; i < campos.length; i++) {
+        if (campos[i].value === "") {
+          formularioValido = false;
+          break;
+        }
+      }
+      document.getElementById("btn-calcular").disabled = !formularioValido;
+    }
+
+    // Limpiar el formulario y habilitar los campos
+    function limpiarFormulario() {
+      const campos = document.querySelectorAll("#formulario-liquidacion .form-control");
+      for (let i = 0; i < campos.length; i++) {
+        campos[i].value = "";
+        campos[i].disabled = false;
+      }
+      document.getElementById("resultado").innerHTML = "";
+      document.getElementById("btn-limpiar").disabled = true;
+      document.getElementById("btn-calcular").disabled = true;
+    }
+
+    // Eventos al cargar la página
+    window.addEventListener("load", () => {
+      // Deshabilitar el spin de los campos de tipo number
+      const campos = document.querySelectorAll("#formulario-liquidacion .form-control[type=number]");
+      for (let i = 0; i < campos.length; i++) {
+        campos[i].addEventListener("input", e => {
+          e.target.value = parseInt(e.target.value) || "";
+        });
+      }
+
+      // Validar el formulario al cambiar el valor de algún campo
+      const formulario = document.getElementById("formulario-liquidacion");
+      formulario.addEventListener("input", validarFormulario);
+
+      // Calcular el sueldo al hacer clic en el botón calcular
+      const btnCalcular = document.getElementById("btn-calcular");
+      btnCalcular.addEventListener("click", () => {
+        calcularSueldo();
+        btnCalcular.disabled = true;
+        document.getElementById("btn-limpiar").disabled = false;
+        formulario.querySelectorAll(".form-control").forEach(campo => {
+          campo.disabled = true;
+        });
+      });
+
+      // Limpiar el formulario al hacer clic en el botón limpiar
+      const btnLimpiar = document.getElementById("btn-limpiar");
+      btnLimpiar.addEventListener("click", limpiarFormulario);
+    });
+  </script>
+</body>
+
+</html>
