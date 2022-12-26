@@ -97,7 +97,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   #formulario-liquidacion {
     display: flex;
@@ -112,7 +112,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   #formulario-liquidacion .form-group {
     flex: 0 0 33.3333%;
@@ -123,7 +123,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-/* Large devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and up) 
 @media (min-width: 992px) {
   #formulario-liquidacion .form-group {
     flex: 0 0 25%;
@@ -132,44 +132,56 @@ input[type=number]::-webkit-outer-spin-button {
   #formulario-liquidacion .btn {
     width: 25%;
   }
-}
+}*/
   </style>
 </head>
 
 <body>
   <form id="formulario-liquidacion" class="mb-3">
-    <h2>Cálculo de sueldo quincenal</h2>
+    <h2>Calculadora de sueldo quincenal</h2>
+    <h5>Este programa calcula el sueldo neto para una quincena en Colombia.</h5>
+    <h5>La calculadora solo funciona para el sueldo mínimo establecido para el 2023 en Colombia:</h5>
+    <h5>1.160.000 pesos</h5>
+    <h5>Y una jornada de 12 horas laborales.</h5>
+    <h5>Los turnos posibles son {Noche, día y descanso} y su modelo es 2x2 es decir:</h5>
+    <h5>{Día, día, noche, noche, descanso, descanso}</h5>
+    <h4>A continuación digite su horas en cada una de las categorías:</h4>
     <div class="form-group">
-      <label for="horas-extra-diurnas-ordinarias">Horas extras diurnas ordinarias trabajadas</label>
+      <label for="horas-extra-diurnas-ordinarias">Digite las horas extras diurnas ordinarias trabajadas totales</label>
       <input type="number" class="form-control" id="horas-extra-diurnas-ordinarias" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-extra-nocturnas-ordinarias">Horas extras nocturnas ordinarias trabajadas</label>
+      <label for="horas-extra-nocturnas-ordinarias">Digite las horas extras nocturnas ordinarias trabajadas totales</label>
       <input type="number" class="form-control" id="horas-extra-nocturnas-ordinarias" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-recargo-nocturno-ordinario">Horas de recargo nocturno ordinario trabajadas</label>
+      <label for="horas-recargo-nocturno-ordinario">Digite las horas de recargo nocturno ordinario trabajadas totales</label>
       <input type="number" class="form-control" id="horas-recargo-nocturno-ordinario" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-extra-diurnas-festivas">Horas extras diurnas festivas trabajadas</label>
+      <label for="horas-extra-diurnas-festivas">Digite las horas extras diurnas festivas trabajadas totales totales</label>
       <input type="number" class="form-control" id="horas-extra-diurnas-festivas" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-extra-nocturnas-festivas">Horas extras nocturnas festivas trabajadas</label>
+      <label for="horas-extra-nocturnas-festivas">Digite las horas extras nocturnas festivas trabajadas totales</label>
       <input type="number" class="form-control" id="horas-extra-nocturnas-festivas" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-recargo-nocturno-festivo">Horas de recargo nocturno festivo trabajadas</label>
+      <label for="horas-recargo-nocturno-festivo">Digite las horas de recargo nocturno festivas trabajados totales</label>
       <input type="number" class="form-control" id="horas-recargo-nocturno-festivo" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="dias-festivos-trabajados">Días festivos trabajados</label>
+      <label for="dias-festivos-trabajados">Digite los días festivos adicionales trabajados totales</label>
       <input type="number" class="form-control" id="dias-festivos-trabajados" min="0" value="0">
     </div>
     <button type="button" class="btn btn-primary" id="btn-calcular">Calcular</button>
     <button type="button" class="btn btn-secondary" id="btn-limpiar">Limpiar</button>
     <div class="resultado" id="resultado"></div>
+    <h1>¿Se te complica calcularlas?</h1>
+    <h5>Estoy trabajando en un programa para que las puedas calcular.</h5>
+    <h5>Sólo tendrás que introducir tu fecha de inicio de la quincena y los 2 primeros turnos</h5>
+    
+
   </form>
   <script>
     // Deshabilitar el botón limpiar al cargar la página
