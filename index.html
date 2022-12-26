@@ -13,153 +13,140 @@
   <title>Liquidación de Sueldo</title>
 
   <style>
-    #formulario-liquidacion {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  #formulario-liquidacion h2 {
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  #formulario-liquidacion .form-group {
-    margin-bottom: 20px;
-  }
-  
-  #formulario-liquidacion label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  #formulario-liquidacion input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  #formulario-liquidacion .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #formulario-liquidacion .btn-primary {
-    background-color: #337ab7;
-    color: #fff;
-  }
-  
-  #formulario-liquidacion .btn-secondary {
-    background-color: #ccc;
-    color: #333;
-  }
-  
-  #formulario-liquidacion .btn:disabled {
-    background-color: #eee;
-    color: #999;
-    cursor: not-allowed;
-  }
-  
-  /* Estilos para el área de resultado */
-  #resultado {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  #resultado h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  #resultado #sueldo-final {
-    font-size: 24px;
-    font-weight: bold;
-    color: #337ab7;
-  }
-  input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-/* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  #formulario-liquidacion {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #formulario-liquidacion .form-group {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  #formulario-liquidacion .btn {
-    width: 100%;
-  }
+   #formulario-liquidacion {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  #formulario-liquidacion .form-group {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-  }
-  #formulario-liquidacion .btn {
-    width: 50%;
-  }
+#formulario-liquidacion h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-/* Large devices (desktops, 992px and up) 
-@media (min-width: 992px) {
-  #formulario-liquidacion .form-group {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-  #formulario-liquidacion .btn {
-    width: 25%;
-  }
-}*/
+#formulario-liquidacion .form-group {
+  margin-bottom: 20px;
+}
+
+#formulario-liquidacion label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+#formulario-liquidacion input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#formulario-liquidacion .btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#formulario-liquidacion .btn-primary {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+#formulario-liquidacion .btn-secondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+#formulario-liquidacion .btn:disabled {
+  background-color: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Estilos para el área de resultado */
+#resultado {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+#resultado h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+#resultado #sueldo-final {
+  font-size: 24px;
+  font-weight: bold;
+  color: #337ab7;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
   </style>
 </head>
 
 <body>
   <form id="formulario-liquidacion" class="mb-3">
-    <h2>Calculadora de sueldo quincenal</h2>
-    <h5>Este programa calcula el sueldo neto para una quincena en Colombia.</h5>
-    <h5>La calculadora solo funciona para el sueldo mínimo establecido para el 2023 en Colombia:</h5>
-    <h5>1.160.000 pesos</h5>
-    <h5>Y una jornada de 12 horas laborales.</h5>
-    <h5>Los turnos posibles son {Noche, día y descanso} y su modelo es 2x2 es decir:</h5>
-    <h5>{Día, día, noche, noche, descanso, descanso}</h5>
-    <h4>A continuación digite su horas en cada una de las categorías:</h4>
+    <h2>Calculadora de sueldo quincenal: Seguridad Holding</h2>
+    <i><h6>Este programa calcula el sueldo neto para una quincena en Colombia.
+    La calculadora solo funciona para el sueldo mínimo establecido para el 2023 en Colombia:
+    1.160.000 pesos
+    Y una jornada de 12 horas laborales.<br><br></i>
+    <h3>¿Cómo calcular las horas totales?</h3>
+    Los turnos posibles son {Noche, día y descanso} y su modelo es 2x2 es decir:
+    {Día, día, noche, noche, descanso, descanso}.<br><br>
+    La horas de cada turno están distribuido de la siguiente manera:<br><br>
+    Turno diurno normal y festivo: {4 horas extras diurnas ordinarias}.<br><br>
+    Turno nocturno normal y festivo tiene las siguientes condiciones:<br><br>
+    Turno nocturno normal: {8 horas de recargo nocturno ordinario,
+    2 horas extras diurnas ordinarias y 2 horas extras nocturnas ordinarias}.<br><br>
+    Si el turno nocturno se da en un día normal y al día siguiente es festivo:<br><br>
+    Turno nocturno ordinario condicional: {3 horas de recargo nocturno ordinario, 
+    5 horas recargo nocturno festivo, 2horas extras diurnas ordinarias y 
+    2 horas extras nocturnas ordinarias}<br><br>
+    Turno nocturno festivo: {3 horas recargo nocturno festivo, 
+    5 horas recargo nocturno ordinario, 2 horas extras
+    festivas diurnas y 2 horas extras festivas nocturnas.<br><br>
+    Turno nocturno ordinario: {8 horas de recargo nocturno ordinario, 
+    2 horas extras diurna ordinaria y 2 horas extras
+    nocturna ordinario}</h6><br><br>
+    <h4>A continuación digite sus horas en cada una de las categorías:</h4><br>
     <div class="form-group">
       <label for="horas-extra-diurnas-ordinarias">Digite las horas extras diurnas ordinarias trabajadas totales</label>
       <input type="number" class="form-control" id="horas-extra-diurnas-ordinarias" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-extra-nocturnas-ordinarias">Digite las horas extras nocturnas ordinarias trabajadas totales</label>
+      <label for="horas-extra-nocturnas-ordinarias">Digite las horas extras nocturnas ordinarias trabajadas
+        totales</label>
       <input type="number" class="form-control" id="horas-extra-nocturnas-ordinarias" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-recargo-nocturno-ordinario">Digite las horas de recargo nocturno ordinario trabajadas totales</label>
+      <label for="horas-recargo-nocturno-ordinario">Digite las horas de recargo nocturno ordinario trabajadas
+        totales</label>
       <input type="number" class="form-control" id="horas-recargo-nocturno-ordinario" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-extra-diurnas-festivas">Digite las horas extras diurnas festivas trabajadas totales totales</label>
+      <label for="horas-extra-diurnas-festivas">Digite las horas extras diurnas festivas trabajadas totales
+        totales</label>
       <input type="number" class="form-control" id="horas-extra-diurnas-festivas" min="0" value="0">
     </div>
     <div class="form-group">
@@ -167,7 +154,8 @@ input[type=number]::-webkit-outer-spin-button {
       <input type="number" class="form-control" id="horas-extra-nocturnas-festivas" min="0" value="0">
     </div>
     <div class="form-group">
-      <label for="horas-recargo-nocturno-festivo">Digite las horas de recargo nocturno festivas trabajados totales</label>
+      <label for="horas-recargo-nocturno-festivo">Digite las horas de recargo nocturno festivas trabajados
+        totales</label>
       <input type="number" class="form-control" id="horas-recargo-nocturno-festivo" min="0" value="0">
     </div>
     <div class="form-group">
@@ -180,9 +168,10 @@ input[type=number]::-webkit-outer-spin-button {
     <h1>¿Se te complica calcularlas?</h1>
     <h5>Estoy trabajando en un programa para que las puedas calcular.</h5>
     <h5>Sólo tendrás que introducir tu fecha de inicio de la quincena y los 2 primeros turnos</h5>
-    
+
 
   </form>
+  <footer>Desarrollado por: Omar Yire Mendoza Comas</footer>
   <script>
     // Deshabilitar el botón limpiar al cargar la página
     document.getElementById("btn-limpiar").disabled = true;
