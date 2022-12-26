@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -156,66 +156,161 @@
     }
 
     .header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px 0;
-      font-family: sans-serif;
-    }
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-family: sans-serif;
+}
 
-    .header .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0;
-      text-align: center;
-    }
+.header .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
 
-    .header .navbar {
-      margin-bottom: 0;
-    }
+.navbar {
+  margin-bottom: 0;
+}
 
-    .header .navbar .navbar-nav .nav-link {
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-    }
+.navbar .nav-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
 
-    .header .navbar .navbar-nav .nav-link:hover {
-      color: #7cb342;
-    }
+.navbar .nav-link:hover {
+  color: #7cb342;
+}
 
-    .header .navbar .navbar-nav .nav-link.active {
-      color: #7cb342;
-    }
+.navbar .nav-link.active {
+  color: #7cb342;
+}
 
-    .header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item {
-      color: #333;
-      font-size: 14px;
-    }
+.navbar .dropdown-menu .dropdown-item {
+  color: #333;
+  font-size: 14px;
+}
 
-    .header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
-      background-color: #7cb342;
-      color: #fff;
-    }
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #7cb342;
+  color: #fff;
+}
 
-    @media (max-width: 991px) {
-      .header .title {
-        font-size: 18px;
-      }
+@media (max-width: 991px) {
+  .header .title {
+    font-size: 18px;
+  }
 
-      .header .navbar .navbar-nav .nav-link {
-        font-size: 12px;
-      }
-    }
+  .navbar .nav-link {
+    font-size: 12px;
+  }
+}
 
-    @media (max-width: 767px) {
-      .header .title {
-        font-size: 16px;
-      }
+@media (max-width: 767px) {
+  .header .title {
+    font-size: 16px;
+  }
 
-      .header .navbar .navbar-nav .nav-link {
-        font-size: 10px;
-      }
-    }
+  .navbar .nav-link {
+    font-size: 10px;
+  }
+}
+/* Definir variables para la paleta de colores y la tipografía */
+:root {
+  --primary-color: #333;
+  --secondary-color: #7cb342;
+  --tertiary-color: #fff;
+  --main-font: 'Sans-serif', sans-serif;
+}
+
+/* Estilos para el encabezado */
+.header {
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  padding: 20px 0;
+  font-family: var(--main-font);
+}
+
+.header .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+/* Estilos para el menú de navegación */
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar .nav-link {
+  color: var(--tertiary-color);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+.navbar .nav-link.active {
+  color: var(--secondary-color);
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 991px) {
+  .header .title {
+    font-size: 18px;
+  }
+
+  .navbar .nav-link {
+    font-size: 12px;
+  }
+
+  .navbar .dropdown-menu {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .header .title {
+    font-size: 16px;
+  }
+
+  .navbar .nav-link {
+    font-size: 10px;
+  }
+}
   </style>
 </head>
 
@@ -228,13 +323,15 @@
         </div>
         <div class="col-12 col-md-8">
           <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     Recursos
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
