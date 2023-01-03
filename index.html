@@ -12,411 +12,76 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <title>Liquidación de Sueldo</title>
-
-  <style>
-    #formulario-liquidacion {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-family: sans-serif;
-      font-size: 14px;
-    }
-
-    #formulario-liquidacion h2 {
-      margin-bottom: 30px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 24px;
-    }
-
-    #formulario-liquidacion .form-group {
-      margin-bottom: 20px;
-    }
-
-    #formulario-liquidacion label {
-      display: block;
-      font-weight: bold;
-      color: #333;
-    }
-
-    #formulario-liquidacion input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    #formulario-liquidacion .btn {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    #formulario-liquidacion .btn-primary {
-      background-color: #337ab7;
-      color: #fff;
-    }
-
-    #formulario-liquidacion .btn-secondary {
-      background-color: #ccc;
-      color: #333;
-    }
-
-    #formulario-liquidacion .btn:disabled {
-      background-color: #eee;
-      color: #999;
-      cursor: not-allowed;
-    }
-
-    /* Estilos para el área de resultado */
-    #resultado {
-      background-color: #f8f8f8;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-family: sans-serif;
-    }
-
-    #resultado h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    #resultado #sueldo-final {
-      font-size: 24px;
-      font-weight: bold;
-      color: #337ab7;
-    }
-
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    .footer {
-      background-color: #333;
-      color: #fff;
-      padding: 40px 0;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
-    .footer h3 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .footer p {
-      font-size: 14px;
-      margin-bottom: 0;
-      color: #fff;
-    }
-
-    .footer .copyright {
-      font-size: 14px;
-      margin-top: 20px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer .copyright .developer {
-      margin-right: 10px;
-      font-style: italic;
-      color: #7cb342;
-    }
-
-    @media (max-width: 991px) {
-      .footer .col-12 {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .footer h3 {
-        font-size: 16px;
-      }
-
-      .footer .copyright {
-        font-size: 12px;
-      }
-    }
-
-    .header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px 0;
-      font-family: sans-serif;
-    }
-
-    .header .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0;
-      text-align: center;
-    }
-
-    .navbar {
-      margin-bottom: 0;
-    }
-
-    .navbar .nav-link {
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .navbar .nav-link:hover {
-      color: #7cb342;
-    }
-
-    .navbar .nav-link.active {
-      color: #7cb342;
-    }
-
-    .navbar .dropdown-menu .dropdown-item {
-      color: #333;
-      font-size: 14px;
-    }
-
-    .navbar .dropdown-menu .dropdown-item:hover {
-      background-color: #7cb342;
-      color: #fff;
-    }
-
-    @media (max-width: 991px) {
-      .header .title {
-        font-size: 18px;
-      }
-
-      .navbar .nav-link {
-        font-size: 12px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .header .title {
-        font-size: 16px;
-      }
-
-      .navbar .nav-link {
-        font-size: 10px;
-      }
-    }
-
-    /* Definir variables para la paleta de colores y la tipografía */
-    :root {
-      --primary-color: #333;
-      --secondary-color: #7cb342;
-      --tertiary-color: #fff;
-      --main-font: 'Sans-serif', sans-serif;
-    }
-
-    /* Estilos para el encabezado */
-    .header {
-      background-color: var(--primary-color);
-      color: var(--tertiary-color);
-      padding: 20px 0;
-      font-family: var(--main-font);
-    }
-
-    .header .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0;
-      text-align: center;
-    }
-
-    /* Estilos para el menú de navegación */
-    .navbar {
-      margin-bottom: 0;
-    }
-
-    .navbar .nav-link {
-      color: var(--tertiary-color);
-      font-size: 14px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .navbar .nav-link:hover {
-      color: var(--secondary-color);
-    }
-
-    .navbar .nav-link.active {
-      color: var(--secondary-color);
-    }
-
-    .navbar .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-      display: none;
-      flex-direction: column;
-      background-color: var(--primary-color);
-      color: var(--tertiary-color);
-    }
-
-    .navbar .dropdown-menu .dropdown-item {
-      font-size: 14px;
-      text-decoration: none;
-      padding: 10px 20px;
-      transition: all 0.3s ease;
-    }
-
-    .navbar .dropdown-menu .dropdown-item:hover {
-      background-color: var(--secondary-color);
-      color: var(--tertiary-color);
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-      display: flex;
-    }
-
-    /* Estilos para dispositivos móviles */
-    @media (max-width: 991px) {
-      .header .title {
-        font-size: 18px;
-      }
-
-      .navbar .nav-link {
-        font-size: 12px;
-      }
-
-      .navbar .dropdown-menu {
-        position: static;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .header .title {
-        font-size: 16px;
-      }
-
-      .navbar .nav-link {
-        font-size: 10px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <h1 class="title">Calcula tu sueldo neto</h1>
-          <h1 class="title">Axiomath24</h1>
-          <h1 class="title">V1.0</h1>
-        </div>
-        <div class="col-12 col-md-8">
-          <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Recursos
-                  </a>
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Actualizaciones
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Calcular horas extras totales para cada categoría</a>
-                    <!-- Agrega más elementos aquí si deseas -->
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
+  <div class="header">
+
+    <div class="inner-header flex">
+      <img src="image.png" alt="logo" class="logo">
+      <h1>Tu quincena en un click</h1>
     </div>
-  </header>
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="content flex">
+    <img src="flecha.png" alt="logo" class="logo">
+  </div>
+
   <form id="formulario-liquidacion" class="mb-3">
-    <h2>Calculadora de sueldo quincenal para empresas de seguridad con modelo 2x2</h2>
-    <i>
-      <h6>Este programa calcula el sueldo neto para una quincena en Colombia.
-        La calculadora solo funciona para el sueldo mínimo establecido para el 2023 en Colombia:
-        1.160.000 pesos
-        Y una jornada de 12 horas laborales.<br><br>
-    </i>
-    <h3>¿Cómo calcular las horas totales?</h3>
-    Los turnos posibles son {Noche, día y descanso} y su modelo es 2x2 es decir:
-    {Día, día, noche, noche, descanso, descanso}.<br><br>
-    La horas de cada turno están distribuido de la siguiente manera:<br><br>
-    Turno diurno normal y festivo: {4 horas extras diurnas ordinarias}.<br><br>
-    Turno nocturno normal y festivo tiene las siguientes condiciones:<br><br>
-    Turno nocturno normal: {8 horas de recargo nocturno ordinario,
-    2 horas extras diurnas ordinarias y 2 horas extras nocturnas ordinarias}.<br><br>
-    Si el turno nocturno se da en un día normal y al día siguiente es festivo:<br><br>
-    Turno nocturno ordinario condicional: {3 horas de recargo nocturno ordinario,
-    5 horas recargo nocturno festivo, 2horas extras diurnas ordinarias y
-    2 horas extras nocturnas ordinarias}<br><br>
-    Turno nocturno festivo: {3 horas recargo nocturno festivo,
-    5 horas recargo nocturno ordinario, 2 horas extras
-    festivas diurnas y 2 horas extras festivas nocturnas.<br><br>
-    Turno nocturno ordinario: {8 horas de recargo nocturno ordinario,
-    2 horas extras diurna ordinaria y 2 horas extras
-    nocturna ordinario}</h6><br><br>
-    <h4>A continuación digite sus horas en cada una de las categorías:</h4><br>
-    <h6>Funcionalidades: podrás limpiar el formulario.</h6><br>
-    <h6>Si algunas de tus categorías es 0, déjalo así</h6><br>
-    <div class="form-group">
-      <label for="horas-extra-diurnas-ordinarias">Digite las horas extras diurnas ordinarias trabajadas totales</label>
-      <input type="number" class="form-control" id="horas-extra-diurnas-ordinarias" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="horas-extra-nocturnas-ordinarias">Digite las horas extras nocturnas ordinarias trabajadas
-        totales</label>
-      <input type="number" class="form-control" id="horas-extra-nocturnas-ordinarias" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="horas-recargo-nocturno-ordinario">Digite las horas de recargo nocturno ordinario trabajadas
-        totales</label>
-      <input type="number" class="form-control" id="horas-recargo-nocturno-ordinario" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="horas-extra-diurnas-festivas">Digite las horas extras diurnas festivas trabajadas totales
-        totales</label>
-      <input type="number" class="form-control" id="horas-extra-diurnas-festivas" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="horas-extra-nocturnas-festivas">Digite las horas extras nocturnas festivas trabajadas totales</label>
-      <input type="number" class="form-control" id="horas-extra-nocturnas-festivas" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="horas-recargo-nocturno-festivo">Digite las horas de recargo nocturno festivas trabajados
-        totales</label>
-      <input type="number" class="form-control" id="horas-recargo-nocturno-festivo" min="0" value="0">
-    </div>
-    <div class="form-group">
-      <label for="dias-festivos-trabajados">Digite los días festivos trabajados totales</label>
-      <input type="number" class="form-control" id="dias-festivos-trabajados" min="0" value="0">
-    </div>
-    <button type="button" class="btn btn-primary" id="btn-calcular">Calcular</button>
-    <button type="button" class="btn btn-secondary" id="btn-limpiar">Limpiar</button>
-    <div class="resultado" id="resultado"></div>
+    <fieldset>
+      <h4>A continuación digite sus horas en cada una de las categorías:</h4><br>
+      <div class="form-group">
+        <label for="horas-extra-diurnas-ordinarias">Digite las horas extras diurnas ordinarias trabajadas
+          totales</label>
+        <input type="number" class="form-control" id="horas-extra-diurnas-ordinarias" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="horas-extra-nocturnas-ordinarias">Digite las horas extras nocturnas ordinarias trabajadas
+          totales</label>
+        <input type="number" class="form-control" id="horas-extra-nocturnas-ordinarias" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="horas-recargo-nocturno-ordinario">Digite las horas de recargo nocturno ordinario trabajadas
+          totales</label>
+        <input type="number" class="form-control" id="horas-recargo-nocturno-ordinario" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="horas-extra-diurnas-festivas">Digite las horas extras diurnas festivas trabajadas totales
+          totales</label>
+        <input type="number" class="form-control" id="horas-extra-diurnas-festivas" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="horas-extra-nocturnas-festivas">Digite las horas extras nocturnas festivas trabajadas
+          totales</label>
+        <input type="number" class="form-control" id="horas-extra-nocturnas-festivas" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="horas-recargo-nocturno-festivo">Digite las horas de recargo nocturno festivas trabajados
+          totales</label>
+        <input type="number" class="form-control" id="horas-recargo-nocturno-festivo" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="dias-festivos-trabajados">Digite los días festivos trabajados totales</label>
+        <input type="number" class="form-control" id="dias-festivos-trabajados" min="0" value="0">
+      </div>
+      <button type="button" class="btn btn-primary" id="btn-calcular">Calcular</button>
+      <button type="button" class="btn btn-secondary" id="btn-limpiar">Limpiar</button>
+      <div class="resultado" id="resultado"></div>
+    </fieldset>
   </form>
   <footer class="footer">
     <div class="container">
@@ -482,7 +147,7 @@
 
     // Limpiar el formulario y habilitar los campos
     function limpiarFormulario() {
-      
+
       const campos = document.querySelectorAll("#formulario-liquidacion .form-control");
       for (let i = 0; i < campos.length; i++) {
         campos[i].value = "0";
