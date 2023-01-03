@@ -417,11 +417,6 @@
     <button type="button" class="btn btn-primary" id="btn-calcular">Calcular</button>
     <button type="button" class="btn btn-secondary" id="btn-limpiar">Limpiar</button>
     <div class="resultado" id="resultado"></div>
-    <h1>¿Se te complica calcularlas?</h1>
-    <h5>Estoy trabajando en un programa para que las puedas calcular.</h5>
-    <h5>Sólo tendrás que introducir tu fecha de inicio de la quincena y los 2 primeros turnos</h5>
-
-
   </form>
   <footer class="footer">
     <div class="container">
@@ -487,12 +482,10 @@
 
     // Limpiar el formulario y habilitar los campos
     function limpiarFormulario() {
-      setInterval(function () {
-        location.reload();
-      }, 1000);
+      
       const campos = document.querySelectorAll("#formulario-liquidacion .form-control");
       for (let i = 0; i < campos.length; i++) {
-        campos[i].value = "";
+        campos[i].value = "0";
         campos[i].disabled = false;
       }
       document.getElementById("resultado").innerHTML = "";
