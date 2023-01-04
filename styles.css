@@ -38,6 +38,7 @@ body {
       }
   
       #formulario-liquidacion input[type="number"] {
+        font-weight: bold;
         width: 100%;
         padding: 12px;
         font-size: 16px;
