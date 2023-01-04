@@ -16,7 +16,7 @@ body {
       background: white;
       border: 0 none;
       border-radius: 30px;
-      box-shadow: 0 0 7px 1px rgba(2, 127, 15, 0.552);
+      box-shadow: 0 0 2px 1px rgba(2, 127, 15, 0.552);
       padding: 20px 30px;
       box-sizing: border-box;
       width: 80%;
@@ -42,7 +42,7 @@ body {
         padding: 12px;
         font-size: 16px;
         text-align: center;
-        border: 3px solid rgb(124, 255, 166);
+        
         background: linear-gradient(to bottom, #ffffff 0%, #d0ffe3 100%);
         border-radius: 4px;
         box-sizing: border-box;
@@ -59,7 +59,7 @@ body {
       }
   
       #formulario-liquidacion .btn-primary {
-        background-color: #33b737;
+        background-color: #33b77c;
         color: #fff;
       }
   
@@ -157,7 +157,7 @@ body {
       .header {
         position: relative;
         text-align: center;
-        background: linear-gradient(60deg, rgb(58, 183, 148) 0%, rgb(0, 193, 0) 100%);
+        background: linear-gradient(60deg, rgb(58, 183, 148) 0%, rgb(0, 193, 109) 100%);
         color: #f5f5f5;
       }
   
