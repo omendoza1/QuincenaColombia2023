@@ -96,3 +96,31 @@ const botonEnviar = formulario.querySelector('.btn-primary');
 botonEnviar.addEventListener('click', () => {
   formulario.classList.add('active');
 });
+const inputs = document.querySelectorAll(".form-control");
+
+
+inputs.forEach(input => {
+    let noBorrar = false;
+
+    input.addEventListener("focus", function() {
+      if (this.value === "0") {
+        noBorrar = true;
+      }
+    });
+
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Backspace" && noBorrar) {
+        event.preventDefault();
+      }
+
+      if (this.value > "0") {
+        noBorrar = false;
+      }
+    });
+
+    input.addEventListener("keyup", function() {
+      if (this.value === "") {
+        this.value = "0";
+      }
+    });
+  });
