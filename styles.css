@@ -204,7 +204,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 @media (max-width: 768px) {
   .header {
-    height: 420px;
+    height: 410px;
   }
  
 }
@@ -327,7 +327,7 @@ input[type=number]::-webkit-outer-spin-button {
   color: rgb(83, 174, 239);
 }
 .calsueldo:hover{
-  color: rgb(236, 40, 40);
+  color: rgb(252, 101, 101);
 }
 
 .nav a:active {
