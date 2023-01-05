@@ -204,7 +204,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 @media (max-width: 768px) {
   .header {
-    height: 375px;
+    height: 480px;
   }
   
 }
@@ -301,10 +301,10 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 18px;
   font-family: sans-serif;
   text-transform: uppercase;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid rgb(255, 255, 255);
+ 
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  background-image: linear-gradient(to right, rgb(194, 191, 0), rgb(3, 89, 248), rgb(173, 2, 5) );
+  
 }
 
 .nav a {
@@ -315,10 +315,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .nav a:hover {
-  color: #ccc;
+  
 
   transform: scale(1.1);
   border-radius: 10px;
+}
+.inicio:hover{
+  color: rgb(246, 255, 0);
+}
+.calhoras:hover{
+  color: rgb(83, 174, 239);
+}
+.calsueldo:hover{
+  color: rgb(236, 40, 40);
 }
 
 .nav a:active {
@@ -335,7 +344,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 10px 0;
   }
   .inner-header {
-    height: 52vh;
+    height: 51vh;
     
   }
 }
