@@ -48,11 +48,12 @@ form .btn:hover {
 }
 
 form .btn-primary {
-  background-color: #21f375;
+  color: #f5f5f5;
+  background-color: #f32121;
 }
 
 form .btn-primary:hover {
-  background-color: #19d2a1;
+  background-color: #d2194d;
 }
 
 form .btn-secondary {
@@ -74,7 +75,7 @@ form .btn-secondary:hover {
 form .resultado {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #086004;
+  color: #600413;
   margin-top: 1rem;
 }
 #formulario-liquidacion .btn:disabled {
@@ -87,7 +88,7 @@ form .resultado {
   background: white;
   border: 0 none;
   border-radius: 30px;
-  box-shadow: 0 0 2px 1px rgba(2, 127, 15, 0.552);
+  box-shadow: 0 0 2px 1px rgba(127, 2, 2, 0.552);
   padding: 20px 30px;
   box-sizing: border-box;
   width: 50%;
@@ -142,7 +143,7 @@ input[type=number]::-webkit-outer-spin-button {
 .footer .copyright .developer {
   margin-right: 10px;
   font-style: italic;
-  color: #7cb342;
+  color: #e23d3d;
 }
 
 @media (max-width: 991px) {
@@ -165,7 +166,7 @@ input[type=number]::-webkit-outer-spin-button {
 .header {
   position: relative;
   text-align: center;
-  background: linear-gradient(60deg, rgb(58, 183, 148) 0%, rgb(0, 193, 109) 100%);
+  background: linear-gradient(60deg, rgb(183, 58, 104) 0%, rgb(193, 0, 0) 100%);
   color: #f5f5f5;
 }
 .logo2{
@@ -196,12 +197,17 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 .inner-header {
-  height: 65vh;
+  height: 60vh;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-
+@media (max-width: 768px) {
+  .header {
+    height: 375px;
+  }
+  
+}
 .flex {
   /*Flexbox for containers*/
   display: flex;
@@ -282,3 +288,55 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
 }
+
+/* Estilos para el menú de navegación */
+.nav {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-image: linear-gradient(to right, rgb(194, 191, 0), rgb(3, 89, 248), rgb(173, 2, 5) );
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  display: block;
+}
+
+.nav a:hover {
+  color: #ccc;
+
+  transform: scale(1.1);
+  border-radius: 10px;
+}
+
+.nav a:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column
+    
+    
+  }
+ .nav a {
+    margin: 10px 0;
+  }
+  .inner-header {
+    height: 52vh;
+    
+  }
+}
+
