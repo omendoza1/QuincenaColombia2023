@@ -90,3 +90,9 @@ window.addEventListener("load", () => {
   const btnLimpiar = document.getElementById("btn-limpiar");
   btnLimpiar.addEventListener("click", limpiarFormulario);
 });
+const formulario = document.getElementById('formulario-liquidacion');
+const botonEnviar = formulario.querySelector('.btn-primary');
+
+botonEnviar.addEventListener('click', () => {
+  formulario.classList.add('active');
+});
