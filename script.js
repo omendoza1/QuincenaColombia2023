@@ -108,12 +108,11 @@ inputs.forEach(input => {
       });
       
       input.addEventListener("keydown", function(event) {
-      if ((event.key < "0" || event.key > "9") && event.key !== "Backspace") {
-      event.preventDefault();
-      
-      this.classList.add("temblor");
-      alert("Ingrese un número");
-      }
+        if (event.key !== "Tab" && (event.key < "0" || event.key > "9") && event.key !== "Backspace") {
+          event.preventDefault();
+          this.classList.add("temblor");
+          alert("Ingrese un número");
+        }
       
       if (event.key === "Backspace" && noBorrar) {
         event.preventDefault();
@@ -136,13 +135,34 @@ inputs.forEach(input => {
       });
       
       input.addEventListener("input", function() {
-      const maxlength = this.getAttribute("data-maxlength");
-      if (this.value.length > maxlength) {
-      this.value = this.value.slice(0, maxlength);
-      }
+        const maxlength = this.getAttribute("data-maxlength");
+        if (this.value.length > maxlength) {
+          this.value = this.value.slice(0, maxlength);
+        }
+        if (this.value.length === maxlength) {
+          const nextInput = this.nextElementSibling;
+          if (nextInput) {
+            nextInput.focus();
+          }
+        }
       });
-      /*este es otro*/
+      
       input.addEventListener("animationend", function() {
       this.classList.remove("temblor");
       });
       });
+      const titleText = "A continuación digite sus horas extras en cada una de las categorías:";
+      const titleElement = document.querySelector("h4");
+      function typeText(text, element) {
+        let i = 0;
+        const interval = setInterval(() => {
+          element.textContent += text[i];
+          i++;
+          if (i >= text.length) {
+            clearInterval(interval);
+          }
+        }, 50);
+      }
+      typeText(titleText, titleElement);
+
+      
