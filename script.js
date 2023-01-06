@@ -96,31 +96,53 @@ const botonEnviar = formulario.querySelector('.btn-primary');
 botonEnviar.addEventListener('click', () => {
   formulario.classList.add('active');
 });
-const inputs = document.querySelectorAll(".form-control");
-
-
+  const inputs = document.querySelectorAll(".form-control");
 inputs.forEach(input => {
-    let noBorrar = false;
+  let noBorrar = false;
+  let haDigitado = false;
 
-    input.addEventListener("focus", function() {
-      if (this.value === "0") {
-        noBorrar = true;
+  input.addEventListener("focus", function() {
+    if (this.value === "0") {
+      noBorrar = true;
       }
-    });
-
-    input.addEventListener("keydown", function(event) {
+      });
+      
+      input.addEventListener("keydown", function(event) {
+      if ((event.key < "0" || event.key > "9") && event.key !== "Backspace") {
+      event.preventDefault();
+      
+      this.classList.add("temblor");
+      alert("Ingrese un número");
+      }
+      
       if (event.key === "Backspace" && noBorrar) {
         event.preventDefault();
+        if (!haDigitado) {
+          
+          this.classList.add("temblor");
+        }
       }
-
+      
       if (this.value > "0") {
-        noBorrar = false;
+      noBorrar = false;
+      haDigitado = true;
       }
-    });
-
-    input.addEventListener("keyup", function() {
+      });
+      
+      input.addEventListener("keyup", function() {
       if (this.value === "") {
-        this.value = "0";
+      this.value = "0";
       }
-    });
-  });
+      });
+      
+      input.addEventListener("input", function() {
+      const maxlength = this.getAttribute("data-maxlength");
+      if (this.value.length > maxlength) {
+      this.value = this.value.slice(0, maxlength);
+      }
+      });
+      
+      input.addEventListener("animationend", function() {
+      this.classList.remove("temblor");
+      });
+      });
