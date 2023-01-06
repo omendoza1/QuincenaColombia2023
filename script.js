@@ -141,7 +141,7 @@ inputs.forEach(input => {
       this.value = this.value.slice(0, maxlength);
       }
       });
-      
+      /*este es otro*/
       input.addEventListener("animationend", function() {
       this.classList.remove("temblor");
       });

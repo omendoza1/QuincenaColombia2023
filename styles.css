@@ -8,6 +8,7 @@ body {
 
 
 form h4 {
+  text-align: center;
   font-size: 1.25rem;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.87);
@@ -21,6 +22,7 @@ form .form-group {
 }
 
 form label {
+  text-align: center;
   font-size: 0.875rem;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.54);
@@ -28,6 +30,7 @@ form label {
 }
 
 form input[type="number"] {
+  text-align: center;
   font-size: 1rem;
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
@@ -351,7 +354,7 @@ input[type=number]::-webkit-outer-spin-button {
 .temblor {
   animation: temblor 0.2s;
 }
-
+/*este es un cambio*/
 @keyframes temblor {
   0% {
     transform: translateX(0);
