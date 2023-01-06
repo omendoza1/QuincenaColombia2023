@@ -207,7 +207,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 @media (max-width: 768px) {
   .header {
-    height: 410px;
+    height: 700px;
   }
  
 }
@@ -294,27 +294,30 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* Estilos para el menú de navegación */
 .nav {
+position: sticky;
+top: 0;
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: #333;
+color: #fff;
+width: 100%;
+font-size: 18px;
+font-family: sans-serif;
+text-transform: uppercase;
+border: 2px solid rgb(255, 255, 255);
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  width: 100%;
-  font-size: 18px;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  border: 2px solid rgb(255, 255, 255);
- 
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
   
 }
 
 .nav a {
+  padding: 20px;
+  width: 100%;
   color: #fff;
   text-decoration: none;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  display: block;
+  display: inline-block;
 }
 
 .nav a:hover {
@@ -344,10 +347,13 @@ input[type=number]::-webkit-outer-spin-button {
     
   }
  .nav a {
-    margin: 10px 0;
+    padding: 15px;
+    
+    
   }
   .inner-header {
-    height: 51vh;
+    height: 70vh;
+  
     
   }
 }

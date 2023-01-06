@@ -151,8 +151,8 @@ inputs.forEach(input => {
       this.classList.remove("temblor");
       });
       });
-      const titleText = "A continuación digite sus horas extras en cada una de las categorías:";
-      const titleElement = document.querySelector("h4");
+      const titleText = "Calculadora de sueldo";
+      const titleElement = document.querySelector("h1");
       function typeText(text, element) {
         let i = 0;
         const interval = setInterval(() => {
@@ -161,7 +161,7 @@ inputs.forEach(input => {
           if (i >= text.length) {
             clearInterval(interval);
           }
-        }, 50);
+        }, 80);
       }
       typeText(titleText, titleElement);
 
