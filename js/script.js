@@ -96,7 +96,7 @@ const botonEnviar = formulario.querySelector('.btn-primary');
 botonEnviar.addEventListener('click', () => {
   formulario.classList.add('active');
 });
-  const inputs = document.querySelectorAll(".form-control");
+const inputs = document.querySelectorAll(".form-control");
 inputs.forEach(input => {
   let noBorrar = false;
   let haDigitado = false;
@@ -151,7 +151,7 @@ inputs.forEach(input => {
       this.classList.remove("temblor");
       });
       });
-      const titleText = "Calculadora de sueldo";
+      const titleText = "Tu quincena en un click";
       const titleElement = document.querySelector("h1");
       function typeText(text, element) {
         let i = 0;
