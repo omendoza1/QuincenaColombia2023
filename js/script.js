@@ -151,6 +151,8 @@ inputs.forEach(input => {
       this.classList.remove("temblor");
       });
       });
+
+      
       /*const titleText = "Tu quincena en un click";
       const titleElement = document.querySelector("h1");
       function typeText(text, element) {
