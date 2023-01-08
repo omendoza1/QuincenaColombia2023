@@ -151,7 +151,7 @@ inputs.forEach(input => {
       this.classList.remove("temblor");
       });
       });
-      const titleText = "Tu quincena en un click";
+      /*const titleText = "Tu quincena en un click";
       const titleElement = document.querySelector("h1");
       function typeText(text, element) {
         let i = 0;
@@ -163,6 +163,6 @@ inputs.forEach(input => {
           }
         }, 80);
       }
-      typeText(titleText, titleElement);
+      typeText(titleText, titleElement);*/
 
       
